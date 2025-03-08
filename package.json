@@ -1,7 +1,7 @@
 {
   "name": "expo-uri-to-pdf",
   "version": "0.0.4",
-  "description": "Provides an API that converts a given URI into a PDF file.",
+  "description": "Provides an API that can generate a PDF file from anything WebKit can render.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -19,7 +19,12 @@
     "react-native",
     "expo",
     "expo-uri-to-pdf",
-    "ExpoUriToPdf"
+    "ExpoUriToPdf",
+    "conversion",
+    "convert",
+    "pdf",
+    "uri",
+    "generate"
   ],
   "repository": "https://github.com/msschwartz/expo-uri-to-pdf",
   "bugs": {

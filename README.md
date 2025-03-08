@@ -1,3 +1,3 @@
 # expo-uri-to-pdf
 
-Provides an API that converts a given URI into a PDF file.
+Provides an API that can generate a PDF file from anything WebKit can render.
