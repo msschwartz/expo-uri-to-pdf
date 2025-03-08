@@ -1,3 +1,3 @@
 # expo-uri-to-pdf
 
-This is a module for Expo that converts a URI to a PDF file.
+Provides an API that converts a given URI into a PDF file.
