@@ -1,6 +1,6 @@
 {
   "name": "expo-uri-to-pdf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a module for Expo that converts a URI to a PDF file.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
