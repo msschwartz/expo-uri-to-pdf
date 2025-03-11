@@ -1,37 +1,34 @@
-import { useEvent } from 'expo';
-import ExpoUriToPdf, { ExpoUriToPdfView } from 'expo-uri-to-pdf';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useEvent } from "expo";
+import ExpoUriToPdf, { ExpoPdfView, uriToPdf } from "expo-uri-to-pdf";
+import { useState } from "react";
+import { Button, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 export default function App() {
-  const onChangePayload = useEvent(ExpoUriToPdf, 'onChange');
-
+  const onChangePayload = useEvent(ExpoUriToPdf, "onChange");
+  const [result, setResult] = useState<{ uri: string }>();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.container}>
         <Text style={styles.header}>Module API Example</Text>
-        <Group name="Constants">
-          <Text>{ExpoUriToPdf.PI}</Text>
-        </Group>
-        <Group name="Functions">
-          <Text>{ExpoUriToPdf.hello()}</Text>
-        </Group>
-        <Group name="Async functions">
-          <Button
-            title="Set value"
-            onPress={async () => {
-              await ExpoUriToPdf.setValueAsync('Hello from JS!');
-            }}
-          />
-        </Group>
         <Group name="Events">
           <Text>{onChangePayload?.value}</Text>
         </Group>
-        <Group name="Views">
-          <ExpoUriToPdfView
-            url="https://www.example.com"
-            onLoad={({ nativeEvent: { url } }) => console.log(`Loaded: ${url}`)}
-            style={styles.view}
+        <Group name="Async functions">
+          <Button
+            title="URI to PDF"
+            onPress={async () => {
+              setResult(await uriToPdf("https://msschwartz.github.io/"));
+            }}
           />
+        </Group>
+        <Group name="Views">
+          {!!result?.uri && (
+            <ExpoPdfView
+              uri={result.uri}
+              onLoad={({ nativeEvent: { uri } }) => console.log(`Loaded: ${uri}`)}
+              style={styles.view}
+            />
+          )}
         </Group>
       </ScrollView>
     </SafeAreaView>
@@ -58,13 +55,13 @@ const styles = {
   },
   group: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
   },
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
   },
   view: {
     flex: 1,
