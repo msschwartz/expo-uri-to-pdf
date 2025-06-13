@@ -13,3 +13,5 @@ console.log(pdfFile.uri)
 --> /Library/Caches/6f043888-556f-490d-a129-4bde29ef82e0.pdf
 
 ```
+
+<img width="720" alt="image" src="https://github.com/user-attachments/assets/c3bfc260-21c2-431a-aec2-6fa788bf8ce3" />
